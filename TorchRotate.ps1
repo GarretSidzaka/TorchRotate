@@ -52,7 +52,7 @@ Write-Host "Server executable = " + $executableFilePath
 Write-Host "Path for backup map.zip = " + $mapStorageFilePath
 Write-Host "Live server map folder = " + $currentLiveMapFilePath
 Write-Host "YOU MUST RECOGNIZE THAT THIS PROGRAM WILL COMPLETELY"
-Write-Host "DELETE YOUR MAP IN 120 MINUTES! DO NOT CONTINUE WITHOUT"
+Write-Host "DELETE YOUR MAP IN " + $minutesForEachMap + "MINUTES! DO NOT CONTINUE WITHOUT"
 Write-Host "READING THE INSTRUCTIONS AND BACKING UP YOUR MAP"
 Read-Host -Prompt "Press Enter to AGREE TO DELETION OF MAP, Control-C to cancel"
 Write-Host " "
