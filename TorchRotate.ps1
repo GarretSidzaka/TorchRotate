@@ -124,6 +124,143 @@ while($true){
 	Write-Host $ps.Path
 	Write-Host $ps.id
 
+        Write-Host " "
+        for ($a=0; $a -le 7200; $a++) {
+        #for ($a=0; $a -le 120; $a++) {
+
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		 Write-Host "first killing the server process"
+
+
+		 #Read-Host -Prompt "Press Enter"
+         Stop-Process -Force -Id $ps.id
+		 Get-Funky $text
+		
+
+
+		for ($a=0; $a -le 5; $a++) {
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		
+	    Write-Host "delete the map files"
+            Start-Sleep -Seconds 1
+	     Get-ChildItem -Path $currentLiveMapFilePath -Include *.* -File -Recurse | foreach { $_.Delete()}
+		             Start-Sleep -Seconds 1
+		 Get-ChildItem -Path $currentLiveMapFilePath -Include * -File -Recurse | foreach { $_.Delete()}
+		            Start-Sleep -Seconds 1
+          Write-Host "extract the original backup map"
+	
+		Expand-Archive -LiteralPath $mapStorageFilePath -DestinationPath $currentLiveMapFilePath
+
+	    for ($a=0; $a -le 10; $a++) {
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		
+		
+		
+		
+	     start-process $executableFilePath
+    $ps = get-process | ?  {$_.Path -eq "$executableFilePath"}
+    Write-Host $ps
+    Write-Host $ps.Name
+	Write-Host $ps.Path
+	Write-Host $ps.id
+        Write-Host " "
+        for ($a=0; $a -le 7200; $a++) {
+        #for ($a=0; $a -le 120; $a++) {
+
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		 Write-Host "first killing the server process"
+
+
+		 #Read-Host -Prompt "Press Enter"
+         Stop-Process -Force -Id $ps.id
+		 Get-Funky $text
+		
+
+
+		for ($a=0; $a -le 5; $a++) {
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		
+	    Write-Host "delete the map files"
+            Start-Sleep -Seconds 1
+	     Get-ChildItem -Path $currentLiveMapFilePath -Include *.* -File -Recurse | foreach { $_.Delete()}
+		             Start-Sleep -Seconds 1
+		 Get-ChildItem -Path $currentLiveMapFilePath -Include * -File -Recurse | foreach { $_.Delete()}
+		            Start-Sleep -Seconds 1
+          Write-Host "extract the original backup map"
+	
+		Expand-Archive -LiteralPath $mapStorageFilePath -DestinationPath $currentLiveMapFilePath
+
+	    for ($a=0; $a -le 10; $a++) {
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		
+		
+		
+		
+	     start-process $executableFilePath
+    $ps = get-process | ?  {$_.Path -eq "$executableFilePath"}
+    Write-Host $ps
+    Write-Host $ps.Name
+	Write-Host $ps.Path
+	Write-Host $ps.id
+
+        Write-Host " "
+        for ($a=0; $a -le 7200; $a++) {
+        #for ($a=0; $a -le 120; $a++) {
+
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		 Write-Host "first killing the server process"
+
+
+		 #Read-Host -Prompt "Press Enter"
+         Stop-Process -Force -Id $ps.id
+		 Get-Funky $text
+		
+
+
+		for ($a=0; $a -le 5; $a++) {
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		
+	    Write-Host "delete the map files"
+            Start-Sleep -Seconds 1
+	     Get-ChildItem -Path $currentLiveMapFilePath -Include *.* -File -Recurse | foreach { $_.Delete()}
+		             Start-Sleep -Seconds 1
+		 Get-ChildItem -Path $currentLiveMapFilePath -Include * -File -Recurse | foreach { $_.Delete()}
+		            Start-Sleep -Seconds 1
+          Write-Host "extract the original backup map"
+	
+		Expand-Archive -LiteralPath $mapStorageFilePath -DestinationPath $currentLiveMapFilePath
+
+	    for ($a=0; $a -le 10; $a++) {
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		
+		
+		
+		
+	     start-process $executableFilePath
+    $ps = get-process | ?  {$_.Path -eq "$executableFilePath"}
+    Write-Host $ps
+    Write-Host $ps.Name
+	Write-Host $ps.Path
+	Write-Host $ps.id
+
 }
 
 Read-Host -Prompt "Press Enter to exit"
