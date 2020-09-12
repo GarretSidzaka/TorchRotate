@@ -50,10 +50,10 @@ Write-Host " "
 $secondsForEachMap = $minutesForEachMap * 60
 start-sleep -s 2
 $executableFilePath = $PSScriptRoot + "\Torch.Server.exe"
-$mapStorageFilePath =  $PSScriptRoot + "\map1.zip"
-$mapStorageFilePath =  $PSScriptRoot + "\map2.zip"
-$mapStorageFilePath =  $PSScriptRoot + "\map3.zip"
-$mapStorageFilePath =  $PSScriptRoot + "\map4.zip"
+$map1StorageFilePath =  $PSScriptRoot + "\map1.zip"
+$map2StorageFilePath =  $PSScriptRoot + "\map2.zip"
+$map3StorageFilePath =  $PSScriptRoot + "\map3.zip"
+$map4StorageFilePath =  $PSScriptRoot + "\map4.zip"
 $currentLiveMapFilePath = $PSScriptRoot + "\Instance\Saves"
 Write-Host "Server executable = " + $executableFilePath
 Write-Host "Path for backup map.zip = " + $mapStorageFilePath
@@ -79,7 +79,7 @@ while($true){
     Write-Host "Starting fresh map loop"
 
         Write-Host " "
-        for ($a=0; $a -le 7200; $a++) {
+        for ($a=0; $a -le 1260; $a++) {
         #for ($a=0; $a -le 120; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
@@ -107,7 +107,7 @@ while($true){
 		            Start-Sleep -Seconds 1
           Write-Host "extract the original backup map"
 	
-		Expand-Archive -LiteralPath $mapStorageFilePath -DestinationPath $currentLiveMapFilePath
+		Expand-Archive -LiteralPath $map1StorageFilePath -DestinationPath $currentLiveMapFilePath
 
 	    for ($a=0; $a -le 10; $a++) {
             Write-Host -NoNewLine "`r0$a"
@@ -125,7 +125,7 @@ while($true){
 	Write-Host $ps.id
 
         Write-Host " "
-        for ($a=0; $a -le 7200; $a++) {
+        for ($a=0; $a -le 1260; $a++) {
         #for ($a=0; $a -le 120; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
@@ -153,7 +153,7 @@ while($true){
 		            Start-Sleep -Seconds 1
           Write-Host "extract the original backup map"
 	
-		Expand-Archive -LiteralPath $mapStorageFilePath -DestinationPath $currentLiveMapFilePath
+		Expand-Archive -LiteralPath $map2StorageFilePath -DestinationPath $currentLiveMapFilePath
 
 	    for ($a=0; $a -le 10; $a++) {
             Write-Host -NoNewLine "`r0$a"
@@ -170,7 +170,7 @@ while($true){
 	Write-Host $ps.Path
 	Write-Host $ps.id
         Write-Host " "
-        for ($a=0; $a -le 7200; $a++) {
+        for ($a=0; $a -le 1260; $a++) {
         #for ($a=0; $a -le 120; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
@@ -198,7 +198,7 @@ while($true){
 		            Start-Sleep -Seconds 1
           Write-Host "extract the original backup map"
 	
-		Expand-Archive -LiteralPath $mapStorageFilePath -DestinationPath $currentLiveMapFilePath
+		Expand-Archive -LiteralPath $map3StorageFilePath -DestinationPath $currentLiveMapFilePath
 
 	    for ($a=0; $a -le 10; $a++) {
             Write-Host -NoNewLine "`r0$a"
@@ -216,7 +216,7 @@ while($true){
 	Write-Host $ps.id
 
         Write-Host " "
-        for ($a=0; $a -le 7200; $a++) {
+        for ($a=0; $a -le 1260; $a++) {
         #for ($a=0; $a -le 120; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
@@ -244,7 +244,7 @@ while($true){
 		            Start-Sleep -Seconds 1
           Write-Host "extract the original backup map"
 	
-		Expand-Archive -LiteralPath $mapStorageFilePath -DestinationPath $currentLiveMapFilePath
+		Expand-Archive -LiteralPath $map4StorageFilePath -DestinationPath $currentLiveMapFilePath
 
 	    for ($a=0; $a -le 10; $a++) {
             Write-Host -NoNewLine "`r0$a"
