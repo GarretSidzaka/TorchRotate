@@ -36,7 +36,7 @@ function Get-Funky{
 $text = @"
   _____              _     ____       _        _           _____\    _______  
  |_   _|__  _ __ ___| |__ |  _ \ ___ | |_ __ _| |_ ___    /      \  |      /\
-   | |/ _ \| '__/ __| '_ \| |_) / _ \| __/ _` | __/ _ \  /_______/  |_____/  \
+   | |/ _ \| '__/ __| '_ \| |_) / _ \| __/ _` | __/ _ \   /_______/  |_____/  \
    | | (_) | | | (__| | | |  _ < (_) | || (_| | ||  __/ |   \   /        /   /
    |_|\___/|_|  \___|_| |_|_| \_\___/ \__\__,_|\__\___|  \   \         \/   /
                                                           \  /          \__/_
@@ -60,46 +60,22 @@ Write-Host "Server executable = " + $executableFilePath
 Write-Host "Path for backup map.zip = " + $mapStorageFilePath
 Write-Host "Live server map folder = " + $currentLiveMapFilePath
 Write-Host "YOU MUST RECOGNIZE THAT THIS PROGRAM WILL COMPLETELY"
-Write-Host "DELETE YOUR MAP IN " + $minutesForEachMap + "MINUTES! DO NOT CONTINUE WITHOUT"
+Write-Host "DELETE YOUR MAP IN.... DO NOT CONTINUE WITHOUT"
 Write-Host "READING THE INSTRUCTIONS AND BACKING UP YOUR MAP"
 Read-Host -Prompt "Press Enter to AGREE TO DELETION OF MAP, Control-C to cancel"
 Write-Host " "
 start-sleep -s 2
+
 Write-Host "Starting server at " + $executableFilePath
 
 
-start-process $executableFilePath
-    $ps = get-process | ?  {$_.Path -eq "$executableFilePath"}
-    Write-Host $ps
-    Write-Host $ps.Name
-	Write-Host $ps.Path
-	Write-Host $ps.id
 
 
 while($true){
-    Write-Host "Starting fresh map loop"
-
-        Write-Host " "
-        for ($a=0; $a -le $secondsForEachMap; $a++) {
-
-            Write-Host -NoNewLine "`r0$a"
-            Start-Sleep -Seconds 1
-        }
-		 Write-Host "first killing the server process"
+    Write-Host "Starting fresh map rotation"
 
 
-		 #Read-Host -Prompt "Press Enter"
-         Stop-Process -Force -Id $ps.id
-		 Get-Funky $text
-		
-
-
-		for ($a=0; $a -le 5; $a++) {
-            Write-Host -NoNewLine "`r0$a"
-            Start-Sleep -Seconds 1
-        }
-		
-	    Write-Host "delete the map files"
+	    Write-Host "deleting the map files"
             Start-Sleep -Seconds 1
 	     Get-ChildItem -Path $currentLiveMapFilePath -Include *.* -File -Recurse | foreach { $_.Delete()}
 		             Start-Sleep -Seconds 1
@@ -108,22 +84,25 @@ while($true){
           Write-Host "extract the original backup map"
 	
 		Expand-Archive -LiteralPath $map1StorageFilePath -DestinationPath $currentLiveMapFilePath
+		$mapnotifier = $currentLiveMapFilePath+"\map1.txt"
+		Write-Host $mapnotifier
+		Out-File -FilePath $mapnotifier
 
-	    for ($a=0; $a -le 10; $a++) {
+	    for ($a=0; $a -le 5; $a++) {
             Write-Host -NoNewLine "`r0$a"
             Start-Sleep -Seconds 1
         }
-		
-		
-		
-		
-	     start-process $executableFilePath
+	start-process $executableFilePath
     $ps = get-process | ?  {$_.Path -eq "$executableFilePath"}
     Write-Host $ps
     Write-Host $ps.Name
 	Write-Host $ps.Path
 	Write-Host $ps.id
+	     Write-Host "Starting next map"
 
+		
+
+    Write-Host "Current Map file:" $map1StorageFilePath
         Write-Host " "
         for ($a=0; $a -le $secondsForEachMap; $a++) {
 
@@ -153,8 +132,11 @@ while($true){
           Write-Host "extract the original backup map"
 	
 		Expand-Archive -LiteralPath $map2StorageFilePath -DestinationPath $currentLiveMapFilePath
+        $mapnotifier = $currentLiveMapFilePath+"\map2.txt"
+		Write-Host $mapnotifier
+		Out-File -FilePath $mapnotifier
 
-	    for ($a=0; $a -le 10; $a++) {
+	    for ($a=0; $a -le 5; $a++) {
             Write-Host -NoNewLine "`r0$a"
             Start-Sleep -Seconds 1
         }
@@ -168,6 +150,8 @@ while($true){
     Write-Host $ps.Name
 	Write-Host $ps.Path
 	Write-Host $ps.id
+    Write-Host "Starting next map"
+    Write-Host "Current Map file:" $map2StorageFilePath
         Write-Host " "
         for ($a=0; $a -le $secondsForEachMap; $a++) {
 
@@ -197,6 +181,9 @@ while($true){
           Write-Host "extract the original backup map"
 	
 		Expand-Archive -LiteralPath $map3StorageFilePath -DestinationPath $currentLiveMapFilePath
+        $mapnotifier = $currentLiveMapFilePath+"\map3.txt"
+		Write-Host $mapnotifier
+		Out-File -FilePath $mapnotifier
 
 	    for ($a=0; $a -le 10; $a++) {
             Write-Host -NoNewLine "`r0$a"
@@ -212,8 +199,10 @@ while($true){
     Write-Host $ps.Name
 	Write-Host $ps.Path
 	Write-Host $ps.id
+     Write-Host "Starting next map"
+    Write-Host "Current Map file:" $map3StorageFilePath
 
-        Write-Host " "
+ Write-Host " "
         for ($a=0; $a -le $secondsForEachMap; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
@@ -242,6 +231,9 @@ while($true){
           Write-Host "extract the original backup map"
 	
 		Expand-Archive -LiteralPath $map4StorageFilePath -DestinationPath $currentLiveMapFilePath
+        $mapnotifier = $currentLiveMapFilePath+"\map4.txt"
+		Write-Host $mapnotifier
+		Out-File -FilePath $mapnotifier
 
 	    for ($a=0; $a -le 10; $a++) {
             Write-Host -NoNewLine "`r0$a"
@@ -257,6 +249,21 @@ while($true){
     Write-Host $ps.Name
 	Write-Host $ps.Path
 	Write-Host $ps.id
+	     Write-Host "Starting next map"
+    Write-Host "Current Map file:" $map4StorageFilePath
+
+        Write-Host " "
+        for ($a=0; $a -le $secondsForEachMap; $a++) {
+
+            Write-Host -NoNewLine "`r0$a"
+            Start-Sleep -Seconds 1
+        }
+		 Write-Host "first killing the server process"
+
+
+		 #Read-Host -Prompt "Press Enter"
+         Stop-Process -Force -Id $ps.id
+		 Get-Funky $text
 
 }
 
