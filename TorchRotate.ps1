@@ -35,6 +35,7 @@ function Get-Funky{
 
 $text = @"
 torchrotate
+
 "@  
 Get-Funky $text
 Write-host " "
@@ -61,6 +62,11 @@ Write-Host "Starting server at " + $executableFilePath
 
 
 start-process $executableFilePath
+    $ps = get-process | ?  {$_.Path -eq "$executableFilePath"}
+    Write-Host $ps
+    Write-Host $ps.Name
+	Write-Host $ps.Path
+	Write-Host $ps.id
 
 
 while($true){
@@ -75,10 +81,11 @@ while($true){
         }
 		 Write-Host "first killing the server process"
 
-	     $doomedServer = Get-Process | Where-Object {$_.Path -like "$executableFilePath"}
-		 Write-Host $doomedServer
-         Get-Process | Where-Object {$_.Path -like "$executableFilePath"} | Stop-Process -Force -processname {$_.ProcessName}
+
+		 #Read-Host -Prompt "Press Enter"
+         Stop-Process -Force -Id $ps.id
 		 Get-Funky $text
+		
 
 
 		for ($a=0; $a -le 5; $a++) {
@@ -105,6 +112,11 @@ while($true){
 		
 		
 	     start-process $executableFilePath
+    $ps = get-process | ?  {$_.Path -eq "$executableFilePath"}
+    Write-Host $ps
+    Write-Host $ps.Name
+	Write-Host $ps.Path
+	Write-Host $ps.id
 
 }
 
