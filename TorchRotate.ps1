@@ -47,6 +47,7 @@ Get-Funky $text
 Write-host " "
 Write-Host "Author: GarretSidzaka https://expanse.2enp.com"
 Write-Host " "
+$minutesForEachMap = $minutesForEachMap + 1 #padding for server startup
 $secondsForEachMap = $minutesForEachMap * 60
 start-sleep -s 2
 $executableFilePath = $PSScriptRoot + "\Torch.Server.exe"
@@ -79,8 +80,7 @@ while($true){
     Write-Host "Starting fresh map loop"
 
         Write-Host " "
-        for ($a=0; $a -le 1260; $a++) {
-        #for ($a=0; $a -le 120; $a++) {
+        for ($a=0; $a -le $secondsForEachMap; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
             Start-Sleep -Seconds 1
@@ -125,8 +125,7 @@ while($true){
 	Write-Host $ps.id
 
         Write-Host " "
-        for ($a=0; $a -le 1260; $a++) {
-        #for ($a=0; $a -le 120; $a++) {
+        for ($a=0; $a -le $secondsForEachMap; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
             Start-Sleep -Seconds 1
@@ -170,8 +169,7 @@ while($true){
 	Write-Host $ps.Path
 	Write-Host $ps.id
         Write-Host " "
-        for ($a=0; $a -le 1260; $a++) {
-        #for ($a=0; $a -le 120; $a++) {
+        for ($a=0; $a -le $secondsForEachMap; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
             Start-Sleep -Seconds 1
@@ -216,8 +214,7 @@ while($true){
 	Write-Host $ps.id
 
         Write-Host " "
-        for ($a=0; $a -le 1260; $a++) {
-        #for ($a=0; $a -le 120; $a++) {
+        for ($a=0; $a -le $secondsForEachMap; $a++) {
 
             Write-Host -NoNewLine "`r0$a"
             Start-Sleep -Seconds 1
