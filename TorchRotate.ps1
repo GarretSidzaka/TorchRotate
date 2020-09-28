@@ -57,11 +57,11 @@ $map3StorageFilePath =  $PSScriptRoot + "\map3.zip"
 $map4StorageFilePath =  $PSScriptRoot + "\map4.zip"
 $currentLiveMapFilePath = $PSScriptRoot + "\Instance\Saves"
 Write-Host "Server executable = " + $executableFilePath
-Write-Host "Path for backup map.zip = " + $mapStorageFilePath
+Write-Host "Path for backup map(n).zip = " + $mapStorageFilePath
 Write-Host "Live server map folder = " + $currentLiveMapFilePath
 Write-Host "YOU MUST RECOGNIZE THAT THIS PROGRAM WILL COMPLETELY"
-Write-Host "DELETE YOUR MAP IN.... DO NOT CONTINUE WITHOUT"
-Write-Host "READING THE INSTRUCTIONS AND BACKING UP YOUR MAP"
+Write-Host "DELETE YOUR MAP IMMEDIATELY AND AGAIN IN" $minutesForEachMap " MINUTES!"
+Write-Host "DO NOT CONTINUE WITHOUT READING THE INSTRUCTIONS!!!!!!!"
 Read-Host -Prompt "Press Enter to AGREE TO DELETION OF MAP, Control-C to cancel"
 Write-Host " "
 start-sleep -s 2
